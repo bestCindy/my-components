@@ -1,1 +1,1 @@
-My React component with typescrit
+My React components with Typescript
