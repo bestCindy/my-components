@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button, { ButtonType, ButtonSize } from './components/Button/button'
 import Menu from './components/Menu/menu';
 import MenuItem from './components/Menu/menuItem';
+import Steps from './components/Steper/Steps';
+import Step from './components/Steper/Step';
+
 
 function App() {
+  let [step, setStep] = useState(1);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -26,14 +31,13 @@ function App() {
         <Button btnType={ButtonType.Link} href="http://www.baidu.com">Baidu Link</Button>
         <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled>Disabled Link</Button>
         
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Steps currentStep={step}>
+          <Step />
+          <Step />
+          <Step />
+        </Steps>
+        <Button onClick={() => setStep(++step)}>Next</Button>
+       
       </header>
     </div>
   );
